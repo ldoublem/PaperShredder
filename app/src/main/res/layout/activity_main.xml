@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:paper="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.ldoublem.PaperShredder.MainActivity">
+
+
+    <com.ldoublem.PaperShredderlib.PaperShredderView
+        android:layout_width="200dp"
+        android:id="@+id/ps_delete"
+
+        android:layout_height="220dp"/>
+
+    <com.ldoublem.PaperShredderlib.PaperShredderView
+        android:layout_width="200dp"
+        android:id="@+id/ps_delete2"
+        android:layout_height="220dp"
+        paper:sherderBgColor="#f4c600"
+        paper:sherderText="清理中"
+        paper:sherderType="0"
+        paper:sherderPaperEnterColor="#56abe4"
+        paper:sherderTextShadow="false"
+        paper:sherderTextColor="#99101010"
+        paper:sherderPaperColor="#dbdbdb"
+        paper:sherderProgress="false"
+      />
+
+
+
+</LinearLayout>

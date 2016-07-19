@@ -1,0 +1,19 @@
+<resources>
+
+
+    <declare-styleable name="PaperShredderView">
+        <attr name="sherderBgColor" format="color|reference"></attr>
+        <attr name="sherderPaperEnterColor" format="color|reference"></attr>
+        <attr name="sherderPaperColor" format="color|reference"></attr>
+        <attr name="sherderText" format="string|reference"></attr>
+        <attr name="sherderTextColor" format="color|reference"></attr>
+        <attr name="sherderTextShadow" format="boolean"></attr>
+
+        <attr name="sherderType" format="integer"></attr>
+        <attr name="sherderProgress" format="boolean"></attr>
+
+
+    </declare-styleable>
+
+
+</resources>
