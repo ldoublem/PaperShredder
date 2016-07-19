@@ -25,6 +25,7 @@ a PaperShredder view for android
 ```
 ##java
 ```
+       mPaperShredderView.setShrededType(PaperShredderView.SHREDEDTYPE.Piece);//纸片效果和纸条效果
        mPaperShredderView.setSherderProgress(false);
        mPaperShredderView.setTitle("清除数据");
        mPaperShredderView.setTextColor(Color.BLACK);
