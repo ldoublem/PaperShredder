@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (j == 1)
-                    mPaperShredderView2.startAnim(1500);
+                    mPaperShredderView2.startAnim(1000);
                 else
                     mPaperShredderView2.stopAnim();
                 j = j * -1;

@@ -14,21 +14,21 @@
 
     <com.ldoublem.PaperShredderlib.PaperShredderView
         android:layout_width="200dp"
+        android:visibility="gone"
         android:id="@+id/ps_delete"
-
         android:layout_height="220dp"/>
 
     <com.ldoublem.PaperShredderlib.PaperShredderView
         android:layout_width="200dp"
         android:id="@+id/ps_delete2"
         android:layout_height="220dp"
-        paper:sherderBgColor="#f4c600"
-        paper:sherderText="清理中"
+        paper:sherderBgColor="#888888"
+        paper:sherderText="清除中"
         paper:sherderType="0"
-        paper:sherderPaperEnterColor="#56abe4"
-        paper:sherderTextShadow="false"
-        paper:sherderTextColor="#99101010"
-        paper:sherderPaperColor="#dbdbdb"
+        paper:sherderPaperEnterColor="#353535"
+        paper:sherderTextShadow="true"
+        paper:sherderTextColor="#ecf0f1"
+        paper:sherderPaperColor="#9d55b8"
         paper:sherderProgress="false"
       />
 
