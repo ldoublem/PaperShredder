@@ -5,7 +5,12 @@ a PaperShredder view for android
 #Preview
 ![png](https://github.com/ldoublem/PaperShredder/blob/master/screenshot/shot.png)
 
-![gif](https://github.com/ldoublem/PaperShredder/blob/master/screenshot/shot1.gif)
+![gif](https://github.com/ldoublem/PaperShredder/blob/master/screenshot/1.gif)
+
+![gif](https://github.com/ldoublem/PaperShredder/blob/master/screenshot/2.gif)
+
+![gif](https://github.com/ldoublem/PaperShredder/blob/master/screenshot/3.gif)
+
 
 ##Usage  xml
 ```
