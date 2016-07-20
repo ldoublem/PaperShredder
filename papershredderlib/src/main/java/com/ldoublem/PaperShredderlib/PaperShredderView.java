@@ -26,26 +26,26 @@ import java.util.List;
 
 public class PaperShredderView extends View {
 
-    Paint mPaint;
+    private Paint mPaint;
 
-    RectF rectFPaper;
-    RectF rectFHost;
-    Path pathHostHead;
+    private RectF rectFPaper;
+    private RectF rectFHost;
+    private Path pathHostHead;
 
-    ArgbEvaluator evaluator;
+    private ArgbEvaluator evaluator;
 
-    float mPaddingLR;
-    int paperSlipCount = 12;
-    int paperRollCount = 30;
-    List<Float> randomHighs = new ArrayList<>();
-    List<Float> randomQuadWidths = new ArrayList<>();
-    List<Float> randomQuadHighs = new ArrayList<>();
+    private float mPaddingLR;
+    private int paperSlipCount = 12;
+    private int paperPieceCount = 35;
+    private List<Float> randomHighs = new ArrayList<>();
+    private List<Float> randomQuadWidths = new ArrayList<>();
+    private List<Float> randomQuadHighs = new ArrayList<>();
 
 
-    List<Float> PaperPiecerandX = new ArrayList<>();
-    List<Float> PaperPiecerandY = new ArrayList<>();
-    List<Float> PaperPiecerandAngle = new ArrayList<>();
-    List<Float> PaperPiecerandRadius = new ArrayList<>();
+    private List<Float> PaperPiecerandX = new ArrayList<>();
+    private List<Float> PaperPiecerandY = new ArrayList<>();
+    private List<Float> PaperPiecerandAngle = new ArrayList<>();
+    private List<Float> PaperPiecerandRadius = new ArrayList<>();
 
 
     private int bgColor = Color.rgb(213, 57, 59);
@@ -57,7 +57,7 @@ public class PaperShredderView extends View {
 
     private int titleColor = Color.WHITE;
 
-    SHREDEDTYPE mShrededType = SHREDEDTYPE.Slip;
+    private SHREDEDTYPE mShrededType = SHREDEDTYPE.Slip;
 
     boolean sherderProgress = true;
 
@@ -149,9 +149,7 @@ public class PaperShredderView extends View {
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.WHITE);
         mPaint.setStyle(Paint.Style.FILL);
-
         rectFPaper = new RectF();
-
         rectFHost = new RectF();
         pathHostHead = new Path();
         evaluator = new ArgbEvaluator();
@@ -470,20 +468,20 @@ public class PaperShredderView extends View {
         }
     }
 
-    public float getFontlength(Paint paint, String str) {
+    private float getFontlength(Paint paint, String str) {
         Rect rect = new Rect();
         paint.getTextBounds(str, 0, str.length(), rect);
         return rect.width();
     }
 
-    public float getFontHeight(Paint paint, String str) {
+    private float getFontHeight(Paint paint, String str) {
         Rect rect = new Rect();
         paint.getTextBounds(str, 0, str.length(), rect);
         return rect.height();
 
     }
 
-    public int dip2px(float dpValue) {
+    private int dip2px(float dpValue) {
         final float scale = getContext().getResources().getDisplayMetrics().density;
         return (int) (dpValue * scale + 0.5f);
     }
@@ -569,7 +567,7 @@ public class PaperShredderView extends View {
         PaperPiecerandY.clear();
         PaperPiecerandAngle.clear();
         PaperPiecerandRadius.clear();
-        for (int i = 0; i < paperRollCount; i++) {
+        for (int i = 0; i < paperPieceCount; i++) {
             PaperPiecerandX.add((float) Math.random());
             PaperPiecerandY.add((float) Math.random());
             PaperPiecerandAngle.add((float) Math.random());
