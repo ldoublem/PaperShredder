@@ -40,6 +40,7 @@ public class PaperShredderView extends View {
     private List<Float> randomHighs = new ArrayList<>();
     private List<Float> randomQuadWidths = new ArrayList<>();
     private List<Float> randomQuadHighs = new ArrayList<>();
+    private List<Float> randomQuadDirection = new ArrayList<>();
 
 
     private List<Float> PaperPiecerandX = new ArrayList<>();
@@ -50,7 +51,7 @@ public class PaperShredderView extends View {
 
     private int bgColor = Color.rgb(213, 57, 59);
     private int paperColor = Color.WHITE;
-    private int paperEnterColor=Color.rgb(148, 146, 148);
+    private int paperEnterColor = Color.rgb(148, 146, 148);
 
     private String title = "Deleting";
     boolean sherderTextShadow = true;
@@ -93,11 +94,10 @@ public class PaperShredderView extends View {
         this.sherderTextShadow = show;
         invalidate();
     }
-    public void setPaperEnterColor(int color)
-    {
-        this.paperEnterColor=color;
-    }
 
+    public void setPaperEnterColor(int color) {
+        this.paperEnterColor = color;
+    }
 
 
     public PaperShredderView(Context context) {
@@ -120,7 +120,7 @@ public class PaperShredderView extends View {
             bgColor = typedArray.getColor(R.styleable.PaperShredderView_sherderBgColor, bgColor);
             titleColor = typedArray.getColor(R.styleable.PaperShredderView_sherderTextColor, titleColor);
             paperColor = typedArray.getColor(R.styleable.PaperShredderView_sherderPaperColor, paperColor);
-            paperEnterColor=typedArray.getColor(R.styleable.PaperShredderView_sherderPaperEnterColor, paperEnterColor);
+            paperEnterColor = typedArray.getColor(R.styleable.PaperShredderView_sherderPaperEnterColor, paperEnterColor);
             title = typedArray.getString(R.styleable.PaperShredderView_sherderText);
             int type = typedArray.getInteger(R.styleable.PaperShredderView_sherderType, 0);
 
@@ -164,6 +164,7 @@ public class PaperShredderView extends View {
         rectFPaper.left = mPaddingLR;
         rectFPaper.right = getMeasuredWidth() - mPaddingLR;
         canvas.drawRect(rectFPaper, mPaint);
+
     }
 
 
@@ -264,10 +265,13 @@ public class PaperShredderView extends View {
                     + rectFPaper.height() / 3f * randomHighs.get(i);
             float randomQuadWidth = this.randomQuadWidths.get(i) * paperSlipspace * 2.5f * animatedValue;
 
-            if (i % 2 == 0) {
-                randomQuadWidth = randomQuadWidth * -1;
 
+            if (randomQuadDirection.get(i) > 0.5f) {
+                randomQuadWidth = randomQuadWidth * -1;
             }
+
+
+
             float randomQuadHigh = this.randomQuadHighs.get(i) * paperSlipHigh * animatedValue;
 
 
@@ -320,7 +324,7 @@ public class PaperShredderView extends View {
             angle = (int) (angle + 180 * mAnimatedValue);
             float radius = paperPiecewidth * 0.8f;
             if (PaperPiecerandRadius.get(i) < 0.3f) {
-                PaperPiecerandRadius.set(i,0.3f);
+                PaperPiecerandRadius.set(i, 0.3f);
 
             }
             radius = radius * PaperPiecerandRadius.get(i);
@@ -411,8 +415,6 @@ public class PaperShredderView extends View {
                     centerY - y
 
             );
-
-
 
 
             paperPiece.close();
@@ -556,11 +558,12 @@ public class PaperShredderView extends View {
         randomHighs.clear();
         randomQuadWidths.clear();
         randomQuadHighs.clear();
+        randomQuadDirection.clear();
         for (int i = 0; i < paperSlipCount; i++) {
             randomHighs.add((float) Math.random());
             randomQuadWidths.add((float) Math.random());
             randomQuadHighs.add((float) Math.random());
-
+            randomQuadDirection.add((float) Math.random());
 
         }
         PaperPiecerandX.clear();
@@ -577,5 +580,9 @@ public class PaperShredderView extends View {
 
     }
 
-
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        stopAnim();
+    }
 }
